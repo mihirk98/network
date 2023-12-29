@@ -1,4 +1,4 @@
-const mainEl = document.querySelector("main");
+const cyEl = document.querySelector("#cyEl");
 const popUpEl = document.querySelector("#popUp");
 
 const nodes = [
@@ -5376,7 +5376,7 @@ for (edge of edges) {
 }
 
 var cy = cytoscape({
-  container: mainEl,
+  container: cyEl,
   elements: dataWithKey,
   style: [
     {
@@ -5473,3 +5473,8 @@ cy.on("mouseout", "node", function (event) {
     stopAnimation(edge);
   });
 });
+
+const slider = document.getElementById("zoom");
+slider.oninput = function () {
+  cy.zoom(this.value / 10);
+};
